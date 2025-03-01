@@ -2,45 +2,113 @@
 * {
 	box-sizing: border-box;
 }
+
+
 body {
-	font-family: "Noto Sans Lao", sans-serif;
-	margin: 50px;
+    font-family: sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+.file-upload {
+    background-color: #f0f0f0;
+    padding: 10px;
+    
+  
 }
 
-.form-container {
-	width: 400px;
-	margin: auto;
-	border: 1px solid #eee;
-	padding: 20px;
+.language-group .form-group:first-child {
+    margin-right: 5px; /* ເພີ່ມ margin-right */
 }
-input, textarea {
-	width: 100%;
-	padding: 10px;
-	margin: 10px 0;
-	border-radius: 5px;
-	border: 1px solid #ccc;
+
+.language-group .form-group:last-child {
+    margin-left: 5px; /* ເພີ່ມ margin-left */
 }
+.container {
+    width: 600px;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 30px; /* ລຶບຊ່ອງຫວ່າງດ້ານລຸ່ມ */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
 button {
-	background: #2300FF;
-	color: #fff;
-	padding: 10px 15px;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	font-family: "Noto Sans Lao", sans-serif;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
 }
+
 button:hover {
-	background: #8000FF;
+    background-color: #45a049;
 }
-.error {
-	background: #E99A9A;
-	color: #C80000;
-	padding: 15px 10px;
-	border-radius: 5px;
+
+.language-group, .name-phone-group {
+    display: flex;
 }
-.success {
-	background: #97E8A9;
-	color: #00C82C;
-	padding: 15px 10px;
-	border-radius: 5px;
+
+.language-group .form-group, .name-phone-group .form-group {
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .language-group, .name-phone-group {
+        flex-direction: column;
+    }
+
+    .language-group .form-group, .name-phone-group .form-group {
+        width: 100%;
+        margin-bottom: 15px;
+    }
 }
