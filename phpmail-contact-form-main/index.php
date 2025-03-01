@@ -6,10 +6,29 @@
 	<title>PHP Contact Form</title>
 	<link rel="stylesheet" type="text/css" 
 	      href="style.css">
+          
 </head>
+<style>
+    body{
+        font-family: "Noto Sans Lao", sans-serif;
+    }
+    select{
+        font-family: "Noto Sans Lao";
+    }
+    input{
+        font-family: "Noto Sans Lao"; 
+    }
+    textarea{
+        font-family: "Noto Sans Lao"; 
+    }
+    button{
+        font-family: "Noto Sans Lao"; 
+    }
+    
+</style>
 <body>
   <div class="form-container">
-  	<h2>Contact Form</h2>
+  	<h2>ປ້ອນຂໍ້ມູນເພື່ອຮ້ອງຂໍການແປ</h2>
   	<?php if (isset($_GET['error'])) { ?>
   		<p class="error">
   			<?=htmlspecialchars($_GET['error'])?>
@@ -23,11 +42,12 @@
   	<?php } ?>
    
 
-  	<form action="contact.php" method="POST">
+  	<!-- <form action="contact.php" method="POST"> -->
+      <form action="contact.php" method="POST" enctype="multipart/form-data">
 	  <div>
-<label"> ພາສາຕົ້ນສະບັບ</label>
+<label">ເລືອກພາສາຕົ້ນສະບັບ</label>
         <div>
-            <select type="text" name="name">
+            <select type="text" name="originalLanguage">
                 <option value="ພາສາລາວ ">ພາສາລາວ </option>
                 <option value="ພາສາອັງກິດ ">ພາສາອັງກິດ </option>
                 <option value="ພາສາຈີນ ">ພາສາຈີນ </option>
@@ -39,10 +59,10 @@
             </select>
         </div>
 </div>
-<!-- <div>
-<label"> ພາສາເປົ້າໝາຍ</label>
+
+<label">ເລືອກພາສາເປົ້າໝາຍ</label>
         <div>
-            <select type="text" name="pong">
+            <select type="text" name="targetLanguage">
 			<option value="ພາສາລາວ ">ພາສາລາວ </option>
                 <option value="ພາສາອັງກິດ ">ພາສາອັງກິດ </option>
                 <option value="ພາສາຈີນ ">ພາສາຈີນ </option>
@@ -56,30 +76,36 @@
 </div>
 
 <div>
-<label> แนบไฟล์ของคุณ (สูงสุด 5 ไฟล์) </label>
-<input type="file" name="form_fields[file_attachments][]" id="form-field-file_attachments" class="elementor-field elementor-size-sm  elementor-upload-field" multiple="multiple" data-maxsize="10" data-maxsize-message="This file exceeds the maximum allowed size.">
-    </div>
+<label> ແນບໄຟລ໌ຂອງທ່ານ (ສູງສຸດ 5 ໄຟລ໌) </label>
+<input type="file" name="form_fields[]" multiple="multiple" data-maxsize="10" data-maxsize-message="This file exceeds the maximum allowed size.">    </div>
 	<div>
-            <label> ชื่อของคุณ </label>
-            <input size="1" type="text" name="form_fields[your_name]" id="form-field-your_name" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="กรุณากรอกชื่อเต็มของคุณ" required="required" aria-required="true">
-        </div> -->
-		<label> อีเมลของคุณ	</label>
+            <label>ປ້ອນຂໍ້ມູນຊື່ຂອງທ່ານ </label>
+            <input type="text" name="name"
+                placeholder="ຊື່ຂອງຂອງ"
+                required>
+        </div>
+		<label> ທີ່ຢູ່ອີເມວຂອງທ່ານ	</label>
   		<input type="email" name="email" 
+  		       placeholder="ທີ່ຢູອີເມວ" 
+  		       required>
+                 <!-- <label> ເບີໂທຂອງທ່ານ	</label> -->
+  		<!-- <input type="text" name="phoneNamber" 
   		       placeholder="Your Email" 
   		       required>
-				 <!-- <div>
-            <label> หมายเลขโทรศัพท์ของคุณ </label>
-            <input size="1" type="tel" name="form_fields[phone_number]" id="form-field-phone_number" class="elementor-field elementor-size-sm  elementor-field-textual" placeholder="โปรดกรอกหมายเลขโทรศัพท์ของคุณ" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
-        </div> -->
+				 <div> -->
+            <label> ເບີໂທຂອງທ່ານ </label>
+            <input size="1" type="tel" name="phoneNamber" placeholder="ເບີໂທຂອງທ່ານ" pattern="[0-9()#&amp;+*-=.]+" title="Only numbers and phone characters (#, -, *, etc) are accepted.">
+        </div> 
   		<input type="text" name="subject" 
   		       placeholder="Subject" 
   		       required>
   		<textarea name="text" 
   		          rows="5"
   		          placeholder="Your Message"></textarea>
-  		<button type="submit">Send Message</button>
-
+  		<button type="submit">ສົ່ງຂໍ້ມູນ</button>
+          </div>
   	</form>
-  </div>
+      <div>
+ 
 </body>
 </html>
