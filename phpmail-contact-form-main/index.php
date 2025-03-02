@@ -73,6 +73,14 @@
                     </select>
                 </div>
             </div>
+               <div class="form-group">
+<label>ປະເພດການບໍລິການ <span class="required">*</span> </label>
+            <select type="text" name="serviceType">
+			<option value="ແປດວນ ">ແປດວນ </option>
+                <option value="ແປປົກກະຕິ ">ແປປົກກະຕິ</option>
+                <option value="ອື່່ນ ໆ">ອື່ນ ໆ</option>
+            </select>
+        </div>
             <div class="form-group">
                 <label> ແນບໄຟລ໌ຂອງທ່ານ (ສູງສຸດ 5 ໄຟລ໌) </label>
                 <div class="file-upload">
