@@ -18,23 +18,26 @@ require 'PHPMailer/src/Exception.php';
 require 'PHPMailer/src/PHPMailer.php';
 require 'PHPMailer/src/SMTP.php';
 
-if (isset($_POST['originalLanguage']) &&
-    isset($_POST['targetLanguage']) &&
-    isset($_FILES['form_fields']) &&
-    isset($_POST['name']) &&
-    isset($_POST['email']) &&
-    isset($_POST['phoneNamber']) &&
+if (isset($_POST['originalLanguage'])    &&
+	isset($_POST['targetLanguage'])   &&
+	isset($_POST['serviceType'])   &&
+	isset($_FILES['form_fields']) && // ປ່ຽນເປັນ $_FILES
+	isset($_POST['name'])   &&
+	isset($_POST['email'])   &&
+	isset($_POST['phoneNamber'])   &&
     isset($_POST['subject']) &&
     isset($_POST['text'])) {
 
-    $originalLanguage = $_POST['originalLanguage'];
-    $targetLanguage = $_POST['targetLanguage'];
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $phoneNamber = $_POST['phoneNamber'];
-    $subject = $_POST['subject'];
-    $text = $_POST['text'];
-    $files = $_FILES['form_fields'];
+   $originalLanguage = $_POST['originalLanguage'];
+	$targetLanguage = $_POST['targetLanguage'];
+	$serviceType = $_POST['serviceType'];
+	$name = $_POST['name'];
+	$email = $_POST['email'];
+	$phoneNamber = $_POST['phoneNamber'];
+	$subject = $_POST['subject'];
+	$text = $_POST['text'];
+	$files = $_FILES['form_fields']; // ດຶງຂໍ້ມູນໄຟລ໌ຈາກ $_FILES
+    
 
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $response = ['success' => false, 'message' => 'Invalid email format'];
@@ -71,6 +74,7 @@ if (isset($_POST['originalLanguage']) &&
                 <h3>ສະບາຍດີບໍລິສັດ Techart ຂ້າພະເຈົ້າສົນໃຈບໍລິການແປພາສາ</h3>
                 <p><strong>ພາສາຕົ້ນສະບັບ</strong>: $originalLanguage</p>
                 <p><strong>ພາສາເປົ້າໝາຍ</strong>: $targetLanguage</p>
+                <p><strong>ພາສາເປົ້າໝາຍ</strong>: $serviceType</p>
                 <p><strong>ຂ້າພະເຈົ້າຊື່</strong>: $name</p>
                 <p><strong>Email</strong>: $email</p>
                 <p><strong>ເບີໂທ</strong>: $phoneNamber</p>
